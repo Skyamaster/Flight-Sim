@@ -11,4 +11,14 @@
 
 using namespace std;
 
+class point {
+  public:
+    point();
+    ~point();
+    int distance(point);
+  private:
+    double x;
+    double y;
+};
+
 #endif
