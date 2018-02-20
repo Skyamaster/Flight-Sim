@@ -1,6 +1,6 @@
 #include "plane.hpp"
 
-void plane::plane(image i, point l, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) {
+plane::plane(image i, point l, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) {
   looks = i; // I could've used an initialization list for this...
   
   angleOfAttack = 0;

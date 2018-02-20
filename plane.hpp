@@ -1,6 +1,7 @@
 #ifndef PLANEHPP
 #define PLANEHPP
 #include "include.hpp"
+#include "graphics.hpp"
 
 class wing {
   public:
@@ -20,11 +21,12 @@ class controlSurface {
 
 class plane {
   public:
-    plane(image);
+    plane(image, point, float, float, float, float, float);
     ~plane();
     void bank(float degrees);
     void yaw(float degrees);
     void rotate(float degrees);
+    void recalculate();
   private:
   
     vector<wing> wings;

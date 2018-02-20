@@ -23,8 +23,10 @@ class color {
 
 class shape {
   public:
+    shape();
+    ~shape();
     color fillColor;
-}
+};
 
 class rectangle : shape {
   public:
@@ -44,15 +46,16 @@ class line : shape {
 
 class circle : shape {
   public:
-    circle(point, int);
+    circle(point&, int);
     ~circle();
 };
 
 class polygon : shape {
   public:
+    polygon();
     polygon(vector<point>);
-    ~polygon;
-}
+    ~polygon();
+};
 
 class image {
   public:

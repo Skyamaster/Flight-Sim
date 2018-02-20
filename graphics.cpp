@@ -1,6 +1,7 @@
+#include "include.hpp"
 #include "graphics.hpp"
 
-color::color(int a, b, c) {
+color::color(int a, int b, int c) {
   r = a;
   g = b;
   b = c;
@@ -17,4 +18,7 @@ double point::distance(point p) {
 rectangle::rectangle(point a, point b) {
   tl = a;
   br = b;
+}
+
+polygon::polygon(vector<point> p) {
 }
