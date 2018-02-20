@@ -12,4 +12,12 @@
 
 using namespace std;
 
+class simulatable { // if that's not a word, I just made it
+  public:
+    simulatable();
+    ~simulatable();
+    void recalculate();
+  private:
+};
+
 #endif
