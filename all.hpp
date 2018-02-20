@@ -5,5 +5,6 @@
 #include "plane.hpp"
 #include "UI.hpp"
 #include "map.hpp"
+#include "graphics.hpp"
 
 #endif
