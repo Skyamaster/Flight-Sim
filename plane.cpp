@@ -17,3 +17,6 @@ void plane::plane(image i, point l, float aSize, float eSize, float rSize, float
   radarCrossSection = ((rcSection == 0) ? (cSection) : (rcSection));
   location = l;
 }
+
+void plane::recalculate() {
+}
