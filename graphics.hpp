@@ -8,46 +8,56 @@ class point {
     point(int, int);
     ~point();
     double distance(point);
-    double x();
-    double y();
-  private:
     double x;
     double y;
 };
 
-class rectangle {
+class color {
+  public:
+    color(int, int, int);
+    ~color();
+    int r;
+    int g;
+    int b;
+};
+
+class shape {
+  public:
+    color fillColor;
+}
+
+class rectangle : shape {
   public:
     rectangle(point, point);
     ~rectangle();
-  private:
+    point tl;
+    point br;
 };
 
-class line {
+class line : shape {
   public:
     line(point, point);
     ~line();
-  private:
+    point start;
+    point end;
 };
 
-class circle {
+class circle : shape {
   public:
     circle(point, int);
     ~circle();
-  private:
 };
 
-class polygon {
+class polygon : shape {
   public:
     polygon(vector<point>);
     ~polygon;
-  private:
 }
 
 class image {
   public:
     image();
     ~image();
-  private:
 };
 
 #endif
