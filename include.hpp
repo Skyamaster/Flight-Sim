@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <cctype>
 #include <thread>
+#include <cmath>
 
 using namespace std;
 
