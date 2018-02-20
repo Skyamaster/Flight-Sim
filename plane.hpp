@@ -6,9 +6,7 @@ class plane {
   public:
     plane();
     ~plane();
-    void bank(float degrees) {
-      
-    }
+    void bank(float degrees);
   private:
     float angleOfAttack;
     float bankAngle;
