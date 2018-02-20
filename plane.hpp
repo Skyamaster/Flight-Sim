@@ -4,9 +4,11 @@
 
 class plane {
   public:
-    plane();
+    plane(image);
     ~plane();
     void bank(float degrees);
+    void yaw(float degrees);
+    void rotate(float degrees); 
   private:
     float angleOfAttack;
     float bankAngle;
@@ -21,7 +23,11 @@ class plane {
     float aileronAngle;
     float elevatorAngle;
     float rudderAngle;
+  
+    double crossSection;
+    double radarCrossSection; // fun stuff to come later
     
     point location;
+    image looks;
 };
 #endif
