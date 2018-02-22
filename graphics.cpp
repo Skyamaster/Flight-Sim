@@ -7,18 +7,22 @@ color::color(int a, int b, int c) {
   b = c;
 }
 
+point::point(const point& p) {
+  x = p.x;
+  y = p.y;
+}
 point::point(int a, int b) {
   x = a;
   y = b;
 }
-double point::distance(point p) {
+double point::distance(const point& p) {
   return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
 }
 
-rectangle::rectangle(point a, point b) {
+rectangle::rectangle(const point& a, const point& b) {
   tl = a;
   br = b;
 }
 
-polygon::polygon(vector<point> p) {
+polygon::polygon(const vector<point>& p) {
 }
