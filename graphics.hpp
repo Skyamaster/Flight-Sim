@@ -7,6 +7,7 @@ class point {
   public:
     point(int, int);
     ~point();
+    point(const point& p);
     double distance(point);
     double x;
     double y;
