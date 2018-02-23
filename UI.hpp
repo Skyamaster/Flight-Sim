@@ -4,6 +4,13 @@
 #include "include.hpp"
 #include "graphics.hpp"
 
+//helper functions
+namespace UIHandlerInternal {
+  
+  void renderLine(int xa, int ya, int width, int height);
+  void renderCircle(int x, int y, int radius);
+}
+
 class UIHandler {
   public:
     UIHandler();
