@@ -49,6 +49,17 @@ class line : shape {
     point end;
 };
 
+class curve : shape {
+  public:
+    curve();
+    curve(const point&, const point&, int);
+    curve(const cure& c);
+    ~curve();
+    point start;
+    point end;
+    int curvature; // a line is a curve of curvature 0 - shows the maximum distance between the line and the curve
+}
+
 class circle : shape {
   public:
     circle();
