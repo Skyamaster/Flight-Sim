@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+        name: setup
+        command: sudo apt-get -qq -y install make g++ 
+      - run:
           name: build
           command: make
       - run:
