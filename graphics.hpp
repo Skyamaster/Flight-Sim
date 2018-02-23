@@ -5,9 +5,10 @@
 
 class point {
   public:
+    point();
     point(int, int);
-    ~point();
     point(const point& p);
+    ~point();
     double distance(point);
     double x;
     double y;
@@ -15,6 +16,7 @@ class point {
 
 class color {
   public:
+    color();
     color(int, int, int);
     color(const color& c);
     ~color();
@@ -26,6 +28,7 @@ class color {
 class shape {
   public:
     shape();
+    shape(const color& fillColor);
     ~shape();
     shape(const shape& s);
     color fillColor;
@@ -33,24 +36,27 @@ class shape {
 
 class rectangle : shape {
   public:
+    rectangle();
     rectangle(const point&, const point&);
-    ~rectangle();
     rectangle(const rectangle& r);
+    ~rectangle();
     point tl;
     point br;
 };
 
 class line : shape {
   public:
+    line();
     line(const point&, const point&);
-    ~line();
     line(const line& l);
+    ~line();
     point start;
     point end;
 };
 
 class circle : shape {
   public:
+    circle();
     circle(const circle& c);
     circle(const point&, int);
     ~circle();
