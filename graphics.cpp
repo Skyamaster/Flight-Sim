@@ -13,11 +13,11 @@ double point::distance(const point& p) {
 }
 
 rectangle::rectangle() {}
-rectangle::rectangle(const point& a, const point& b) : tl(a), br(b) {}
+rectangle::rectangle(const point& a, const point& b, const color& fillColor = black, const color& fc = black) : tl(a), br(b), fillColor(fc) {}
 rectangle::rectangle(const rectangle& r) : tl(r.tl), br(r.br) {}
 
 line::line() {}
-line::line(const point& s, const point& e) : start(s), end(e) {}
+line::line(const point& s, const point& e, const color& fc = black) : start(s), end(e), fillColor(fc) {}
 line::line(const line& l) : start(l.start), end(l.end) {}
 
 polygon::polygon(const vector<point>& p) {}
