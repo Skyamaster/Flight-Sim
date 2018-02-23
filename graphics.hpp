@@ -74,6 +74,7 @@ class polygon : shape {
     polygon(const vector<point>&);
     polygon(const polygon& p);
     ~polygon();
+    vector<point> points;
 };
 
 class image {
