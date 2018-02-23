@@ -26,12 +26,7 @@ class color {
 };
 
 class shape {
-  public:
-    shape();
-    shape(const color& fillColor);
-    ~shape();
-    shape(const shape& s);
-    color fillColor;
+  // just a dummy class used to group the shapes
 };
 
 class rectangle : shape {
