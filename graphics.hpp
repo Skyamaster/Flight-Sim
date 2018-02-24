@@ -3,15 +3,14 @@
 
 #include "include.hpp"
 
-color black(0, 0, 0);
 
 class point {
   public:
     point();
-    point(int, int);
-    point(const point& p);
+    point(const point& p) : x(p.x), y(p.y) {};
+    point(int a, int b) : x(a), y(b) {};
     ~point();
-    double distance(point);
+    double distance(const point&);
     double x;
     double y;
 };
@@ -19,13 +18,16 @@ class point {
 class color {
   public:
     color();
-    color(int, int, int);
-    color(const color& c);
+    color(int a, int b, int c) : r(a), g(b), b(c) {};
+    color(const color& c) : r(c.r), g(c.g), b(c.b) {};
     ~color();
     int r;
     int g;
     int b;
 };
+
+color black(0, 0, 0);
+
 
 class shape {
   // just a dummy class used to group the shapes
@@ -34,8 +36,8 @@ class shape {
 class rectangle : shape {
   public:
     rectangle();
-    rectangle(const point&, const point&, const color& fc = black);
-    rectangle(const rectangle& r);
+    rectangle(const point& a, const point& b, const color& fillColor = black, const color& fc = black) : tl(a), br(b), fillColor(fc) {};
+    rectangle(const rectangle& r) : tl(r.tl), br(r.br) {};
     ~rectangle();
     point tl;
     point br;
@@ -45,8 +47,8 @@ class rectangle : shape {
 class line : shape {
   public:
     line();
-    line(const point&, const point&, const color& fc = black);
-    line(const line& l);
+    line(const point& s, const point& e, const color& fc = black) : start(s), end(e), fillColor(fc) {};
+    line(const line& l) : start(l.start), end(l.end) {};
     ~line();
     point start;
     point end;
@@ -57,13 +59,13 @@ class curve : shape {
   public:
     curve();
     curve(const point&, const point&, int, const color& fc = black);
-    curve(const cure& c);
+    curve(const curve& c);
     ~curve();
     point start;
     point end;
     int curvature; // a line is a curve of curvature 0 - shows the maximum distance between the line and the curve
     color fillColor;
-}
+};
 
 class circle : shape {
   public:

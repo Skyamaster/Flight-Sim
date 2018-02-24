@@ -1,13 +1,14 @@
 #include "UI.hpp"
+#include "graphics.hpp"
 
 using namespace UIHandlerInternal;
 
 UIHandler::UIHandler() {}
 UIHandler::UIHandler(bool m) : mode(m) {}
-UIHandler::draw(const line& l) {
+void UIHandler::draw(const line& l) {
   renderLine(l.start.x, l.start.y, l.end.x, l.end.y);
 }
-UIHandler::draw(const rectangle& r) {
+void UIHandler::draw(const rectangle& r) {
   point topLeft = r.tl;
   point bottomRight = r.br;
   int width = bottomRight.x - topLeft.x;
