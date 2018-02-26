@@ -7,12 +7,13 @@
 class point {
   public:
     point();
-    point(const point& p) : x(p.x), y(p.y) {};
-    point(int a, int b) : x(a), y(b) {};
+    point(const point& p) : x(p.x), y(p.y), z(p.z) {};
+    point(double a, double b, double c) : x(a), y(b), z(c) {};
     ~point();
     double distance(const point&);
     double x;
     double y;
+    double z;
 };
 
 class color {
@@ -24,6 +25,16 @@ class color {
     int r;
     int g;
     int b;
+};
+
+class Vector {
+  public:
+    vector();
+    vector(double a, double b, double c) : i(a), j(b), k(c);
+    ~vector();
+    double i;
+    double j;
+    double k;
 };
 
 color black(0, 0, 0);
