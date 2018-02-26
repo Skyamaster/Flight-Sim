@@ -32,6 +32,14 @@ class Vector {
     vector();
     vector(double a, double b, double c) : i(a), j(b), k(c);
     ~vector();
+  
+    Vector operator+(const vector& v);
+    Vector& operator+=(const vector& v);
+    Vector operator-(const vector& v);
+    Vector& operator-=(const vector& v);
+    Vector operator-();
+    double dot(const Vector& v);
+  
     double i;
     double j;
     double k;
