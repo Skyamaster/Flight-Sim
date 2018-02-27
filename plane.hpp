@@ -35,6 +35,7 @@ class plane {
     float bankAngle;
     float airspeed;
     float altitude;
+    float hdg; // heading
   
     float aileronSize;
     float elevatorSize;
