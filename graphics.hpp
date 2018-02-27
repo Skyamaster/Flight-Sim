@@ -4,24 +4,24 @@
 #include "include.hpp"
 
 
-class point {
+class Point {
   public:
-    point();
-    point(const point& p) : x(p.x), y(p.y), z(p.z) {};
-    point(double a, double b, double c) : x(a), y(b), z(c) {};
-    ~point();
-    double distance(const point&);
+    Point();
+    Point(const Point& p) : x(p.x), y(p.y), z(p.z) {};
+    Point(double a, double b, double c) : x(a), y(b), z(c) {};
+    ~Point();
+    double distance(const Point&);
     double x;
     double y;
     double z;
 };
 
-class color {
+class Color {
   public:
-    color();
-    color(int a, int b, int c) : r(a), g(b), b(c) {};
-    color(const color& c) : r(c.r), g(c.g), b(c.b) {};
-    ~color();
+    Color();
+    Color(int a, int b, int c) : r(a), g(b), b(c) {};
+    Color(const Color& c) : r(c.r), g(c.g), b(c.b) {};
+    ~Color();
     int r;
     int g;
     int b;
@@ -45,73 +45,90 @@ class Vector {
     double k;
 };
 
-color black(0, 0, 0);
-
-
-class shape {
-  // just a dummy class used to group the shapes
+class Plane {
+  public:
+    double a, b, c, d;
+    Plane(double a = 0, double b = 0, double c = 1, double d = 0);
+    Plane(Point p1, Point p2, Point p3);
+    Vector normal() {return Vector(a, b, c);}
 };
 
-class rectangle : shape {
+class Ray {
   public:
-    rectangle();
-    rectangle(const point& a, const point& b, const color& fillColor = black, const color& fc = black) : tl(a), br(b), fillColor(fc) {};
-    rectangle(const rectangle& r) : tl(r.tl), br(r.br) {};
-    ~rectangle();
-    point tl;
-    point br;
-    color fillColor;
+    Point origin;
+    Vector direction;
+    Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
+    Point operator()(double u) {return origin + u * direction;}
 };
 
-class line : shape {
-  public:
-    line();
-    line(const point& s, const point& e, const color& fc = black) : start(s), end(e), fillColor(fc) {};
-    line(const line& l) : start(l.start), end(l.end) {};
-    ~line();
-    point start;
-    point end;
-    color fillColor;
+
+Color black(0, 0, 0);
+
+
+class Shape {
+  // just a dummy class used to group the Shapes
 };
 
-class curve : shape {
+class Rectangle : Shape {
   public:
-    curve();
-    curve(const point&, const point&, int, const color& fc = black);
-    curve(const curve& c);
-    ~curve();
-    point start;
-    point end;
-    int curvature; // a line is a curve of curvature 0 - shows the maximum distance between the line and the curve
-    color fillColor;
+    Rectangle();
+    Rectangle(const Point& a, const Point& b, const Color& fillColor = black, const Color& fc = black) : tl(a), br(b), fillColor(fc) {};
+    Rectangle(const Rectangle& r) : tl(r.tl), br(r.br) {};
+    ~Rectangle();
+    Point tl;
+    Point br;
+    Color fillColor;
 };
 
-class circle : shape {
+class Line : Shape {
   public:
-    circle();
-    circle(const circle& c);
-    circle(const point&, int, const color& fc = black);
-    ~circle();
-    point center;
+    Line();
+    Line(const Point& s, const Point& e, const Color& fc = black) : start(s), end(e), fillColor(fc) {};
+    Line(const Line& l) : start(l.start), end(l.end) {};
+    ~Line();
+    Point start;
+    Point end;
+    Color fillColor;
+};
+
+class Curve : Shape {
+  public:
+    Curve();
+    Curve(const Point&, const Point&, int, const Color& fc = black);
+    Curve(const Curve& c);
+    ~Curve();
+    Point start;
+    Point end;
+    int curvature; // a Line is a Curve of curvature 0 - shows the maximum distance between the Line and the Curve
+    Color fillColor;
+};
+
+class Circle : Shape {
+  public:
+    Circle();
+    Circle(const Circle& c);
+    Circle(const Point&, int, const Color& fc = black);
+    ~Circle();
+    Point center;
     int radius;
-    color fillColor;
+    Color fillColor;
 };
 
-class polygon : shape {
+class Polygon : Shape {
   public:
-    polygon();
-    polygon(const vector<point>&, const color& fc = black);
-    polygon(const polygon& p);
-    ~polygon();
-    vector<point> points;
-    color fillColor;
+    Polygon();
+    Polygon(const vector<Point>&, const Color& fc = black);
+    Polygon(const Polygon& p);
+    ~Polygon();
+    vector<Point> Points;
+    Color fillColor;
 };
 
-class image {
+class Image {
   public:
-    image();
-    image(const image& i);
-    ~image();
+    Image();
+    Image(const Image& i);
+    ~Image();
 };
 
 #endif
