@@ -11,6 +11,8 @@ class Point {
     Point(double a, double b, double c) : x(a), y(b), z(c) {};
     ~Point();
     double distance(const Point&);
+    double distanceTo(const Plane&);
+    double distanceTo(const Line&);
     double x;
     double y;
     double z;
@@ -38,7 +40,9 @@ class Vector {
     Vector operator-(const vector& v);
     Vector& operator-=(const vector& v);
     Vector operator-();
+    Vector cross(const vector& v);
     double dot(const Vector& v);
+    double magnitude();
   
     double i;
     double j;
@@ -61,6 +65,13 @@ class Ray {
     Point operator()(double u) {return origin + u * direction;}
 };
 
+class Ray {
+  public:
+    Point origin;
+    Vector direction;
+    Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
+    Point operator() (double u) {return origin + u * direction;}
+};
 
 Color black(0, 0, 0);
 
