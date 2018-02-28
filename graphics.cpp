@@ -1,6 +1,13 @@
 #include "include.hpp"
 #include "graphics.hpp"
 
+double noise(int x, int y) {
+  static double prevHeight = 0;
+  int height = rand(x) % 19 + (-9) + rand(y) % 19 + (-9) + prevHeight;
+  prevHeight = height;
+  return height;
+}
+
 double point::distance(const point& p) {
   return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
 }
