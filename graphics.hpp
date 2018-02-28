@@ -3,6 +3,7 @@
 
 #include "include.hpp"
 
+double noise(int seed);
 
 class Point {
   public:
