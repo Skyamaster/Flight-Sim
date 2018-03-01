@@ -3,44 +3,32 @@
 #include "include.hpp"
 #include "graphics.hpp"
 
-class wing {
-  public:
-    wing();
-    ~wing();
-  private:
-    float area;
-    float thickness;
-    float lift;
-    float (*CL)(float); //function pointer CL - accepts input (angle of attack) and returns coefficient of lift
-};
-
-class controlSurface {
-  public:
-  private:
-};
-
 class plane {
   public:
-    plane(image, point, float, float, float, float, float) : looks(i), angleOfAttack(0), bankAngle(0), altitude(0), aileronSize(0), elevatorSize(0), rudderSize(0), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
+    plane(Wireframe i, Point l, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), bankAngle(0), altitude(0), aileronSize(aSize), elevatorSize(eSize), rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
     ~plane();
     void bank(float degrees);
     void yaw(float degrees);
-    void rotate(float degrees);
+    void rotate(float degrees); // rotate as in v1 rotate for takeoff
     void recalculate();
   private:
   
-    vector<wing> wings;
-  
     float angleOfAttack;
     float bankAngle;
-    float airspeed;
+    float airspeed; // probably depreciated
     float altitude;
-    float hdg; // heading
+    float hdg; // heading - probably depreciated
   
     float aileronSize;
     float elevatorSize;
     float rudderSize;
-  
+    
+    float maxBank;
+    
+    Vector thrust;
+    Vector surfaces;
+    Vector motion;
+    
     float aileronAngle;
     float elevatorAngle;
     float rudderAngle;
