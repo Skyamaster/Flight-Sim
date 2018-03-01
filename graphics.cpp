@@ -3,7 +3,13 @@
 
 double noise(int x, int y) {
   static double prevHeight = 0;
-  int height = rand(x) % 19 + (-9) + rand(y) % 19 + (-9) + prevHeight;
+  std::mt19937 gen(x);
+  std::uniform_int_distribution<int> dis(-9, 9);
+  int a = dis(gen);
+  std::mt19937 gen2(y);
+  std::uniform_int_distribution<int> dis2(-9, 9);
+  int b = dis2(gen2);
+  int height = prevHeight + a + b;
   prevHeight = height;
   return height;
 }
