@@ -136,6 +136,15 @@ class Polygon : Shape {
     Color fillColor;
 };
 
+class Wireframe : Shape {
+  public:
+    Wireframe();
+    Wireframe(vector<Shape*> s) : shapes(s);
+    ~Wireframe();
+    vector<Shape*> shapes;
+    void render();
+}
+
 class Image {
   public:
     Image();
