@@ -42,6 +42,7 @@ class Vector {
     Vector& operator-=(const vector& v);
     Vector operator-();
     Vector cross(const vector& v);
+    Vector times(double d);
     double dot(const Vector& v);
     double magnitude();
   
