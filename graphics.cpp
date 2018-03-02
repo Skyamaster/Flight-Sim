@@ -14,7 +14,7 @@ double noise(int x, int y) {
   return height;
 }
 
-double point::distance(const point& p) {
+double Point::distance(const point& p) {
   return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
 }
 

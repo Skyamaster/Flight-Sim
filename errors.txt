@@ -1,0 +1,969 @@
+ll -O0 -std=c++11 main.cpp UI.cpp graphics.cpp plane.cpp map.cpp
+In file included from plane.hpp:4:0,
+                 from all.hpp:5,
+                 from main.cpp:1:
+graphics.hpp:15:29: error: ‘Plane’ does not name a type
+     double distanceTo(const Plane&);
+                             ^
+graphics.hpp:16:29: error: ‘Line’ does not name a type
+     double distanceTo(const Line&);
+                             ^
+graphics.hpp:16:12: error: ‘double Point::distanceTo(const int&)’ cannot be overloaded
+     double distanceTo(const Line&);
+            ^
+graphics.hpp:15:12: error: with ‘double Point::distanceTo(const int&)’
+     double distanceTo(const Plane&);
+            ^
+graphics.hpp:35:12: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector();
+            ^
+graphics.hpp:36:40: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                        ^
+graphics.hpp:37:12: error: expected class-name before ‘(’ token
+     ~vector();
+            ^
+graphics.hpp:39:28: error: ‘vector’ does not name a type
+     Vector operator+(const vector& v);
+                            ^
+graphics.hpp:40:30: error: ‘vector’ does not name a type
+     Vector& operator+=(const vector& v);
+                              ^
+graphics.hpp:41:28: error: ‘vector’ does not name a type
+     Vector operator-(const vector& v);
+                            ^
+graphics.hpp:42:30: error: ‘vector’ does not name a type
+     Vector& operator-=(const vector& v);
+                              ^
+graphics.hpp:44:24: error: ‘vector’ does not name a type
+     Vector cross(const vector& v);
+                        ^
+graphics.hpp: In member function ‘int Vector::vector(double, double, double)’:
+graphics.hpp:36:44: error: only constructors take member initializers
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                            ^
+graphics.hpp:36:59: error: expected ‘{’ at end of input
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                                           ^
+graphics.hpp:36:59: warning: no return statement in function returning non-void [-Wreturn-type]
+graphics.hpp: In member function ‘Vector Plane::normal()’:
+graphics.hpp:59:43: error: no matching function for call to ‘Vector::Vector(double&, double&, double&)’
+     Vector normal() {return Vector(a, b, c);}
+                                           ^
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp: In member function ‘Point Ray::operator()(double)’:
+graphics.hpp:67:51: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+     Point operator()(double u) {return origin + u * direction;}
+                                                   ^
+graphics.hpp: At global scope:
+graphics.hpp:70:7: error: redefinition of ‘class Ray’
+ class Ray {
+       ^
+graphics.hpp:62:7: error: previous definition of ‘class Ray’
+ class Ray {
+       ^
+In file included from plane.hpp:4:0,
+                 from all.hpp:5,
+                 from main.cpp:1:
+graphics.hpp:133:19: error: ‘vector’ does not name a type
+     Polygon(const vector<Point>&, const Color& fc = black);
+                   ^
+graphics.hpp:133:25: error: expected ‘,’ or ‘...’ before ‘<’ token
+     Polygon(const vector<Point>&, const Color& fc = black);
+                         ^
+graphics.hpp:136:5: error: ‘vector’ does not name a type
+     vector<Point> Points;
+     ^
+graphics.hpp:143:21: error: expected ‘)’ before ‘<’ token
+     Wireframe(vector<Shape*> s) : shapes(s);
+                     ^
+graphics.hpp:145:5: error: ‘vector’ does not name a type
+     vector<Shape*> shapes;
+     ^
+graphics.hpp:147:1: error: expected ‘;’ after class definition
+ }
+ ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:42:5: error: ‘point’ does not name a type
+     point location;
+     ^
+plane.hpp:43:5: error: ‘image’ does not name a type
+     image looks;
+     ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp: In constructor ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’:
+plane.hpp:8:127: error: class ‘plane’ does not have any field named ‘looks’
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+                                                                                                                               ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:8:332: error: class ‘plane’ does not have any field named ‘crosSection’
+  maxThrust(maxPower), bankAngle(0), altitude(0), aileronSize(aSize), elevatorSize(eSize), rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection
+                                                                                                                                                                 ^
+plane.hpp:8:430: error: ‘location’ was not declared in this scope
+  rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
+                                                                                                                                                                          ^
+plane.hpp:33:11: warning: ‘plane::thrustPercent’ will be initialized after [-Wreorder]
+     float thrustPercent;
+           ^
+plane.hpp:32:11: warning:   ‘float plane::maxThrust’ [-Wreorder]
+     float maxThrust;
+           ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:8:5: warning:   when initialized here [-Wreorder]
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+     ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:32:11: warning: ‘plane::maxThrust’ will be initialized after [-Wreorder]
+     float maxThrust;
+           ^
+plane.hpp:17:11: warning:   ‘float plane::bankAngle’ [-Wreorder]
+     float bankAngle;
+           ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:8:5: warning:   when initialized here [-Wreorder]
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+     ^
+In file included from all.hpp:5:0,
+                 from main.cpp:1:
+plane.hpp:8:430: error: expected ‘{’ at end of input
+  rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
+                                                                                                                                                                          ^
+In file included from all.hpp:6:0,
+                 from main.cpp:1:
+UI.hpp: At global scope:
+UI.hpp:21:21: error: ‘line’ does not name a type
+     void draw(const line& l);
+                     ^
+UI.hpp:22:21: error: ‘rectangle’ does not name a type
+     void draw(const rectangle& r);
+                     ^
+UI.hpp:22:10: error: ‘void UIHandler::draw(const int&)’ cannot be overloaded
+     void draw(const rectangle& r);
+          ^
+UI.hpp:21:10: error: with ‘void UIHandler::draw(const int&)’
+     void draw(const line& l);
+          ^
+UI.hpp:23:21: error: ‘polygon’ does not name a type
+     void draw(const polygon& p);
+                     ^
+UI.hpp:23:10: error: ‘void UIHandler::draw(const int&)’ cannot be overloaded
+     void draw(const polygon& p);
+          ^
+UI.hpp:21:10: error: with ‘void UIHandler::draw(const int&)’
+     void draw(const line& l);
+          ^
+In file included from UI.hpp:5:0,
+                 from UI.cpp:1:
+graphics.hpp:15:29: error: ‘Plane’ does not name a type
+     double distanceTo(const Plane&);
+                             ^
+graphics.hpp:16:29: error: ‘Line’ does not name a type
+     double distanceTo(const Line&);
+                             ^
+graphics.hpp:16:12: error: ‘double Point::distanceTo(const int&)’ cannot be overloaded
+     double distanceTo(const Line&);
+            ^
+graphics.hpp:15:12: error: with ‘double Point::distanceTo(const int&)’
+     double distanceTo(const Plane&);
+            ^
+graphics.hpp:35:12: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector();
+            ^
+graphics.hpp:36:40: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                        ^
+graphics.hpp:37:12: error: expected class-name before ‘(’ token
+     ~vector();
+            ^
+graphics.hpp:39:28: error: ‘vector’ does not name a type
+     Vector operator+(const vector& v);
+                            ^
+graphics.hpp:40:30: error: ‘vector’ does not name a type
+     Vector& operator+=(const vector& v);
+                              ^
+graphics.hpp:41:28: error: ‘vector’ does not name a type
+     Vector operator-(const vector& v);
+                            ^
+graphics.hpp:42:30: error: ‘vector’ does not name a type
+     Vector& operator-=(const vector& v);
+                              ^
+graphics.hpp:44:24: error: ‘vector’ does not name a type
+     Vector cross(const vector& v);
+                        ^
+graphics.hpp: In member function ‘int Vector::vector(double, double, double)’:
+graphics.hpp:36:44: error: only constructors take member initializers
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                            ^
+graphics.hpp:36:59: error: expected ‘{’ at end of input
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                                           ^
+graphics.hpp:36:59: warning: no return statement in function returning non-void [-Wreturn-type]
+graphics.hpp: In member function ‘Vector Plane::normal()’:
+graphics.hpp:59:43: error: no matching function for call to ‘Vector::Vector(double&, double&, double&)’
+     Vector normal() {return Vector(a, b, c);}
+                                           ^
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp: In member function ‘Point Ray::operator()(double)’:
+graphics.hpp:67:51: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+     Point operator()(double u) {return origin + u * direction;}
+                                                   ^
+graphics.hpp: At global scope:
+graphics.hpp:70:7: error: redefinition of ‘class Ray’
+ class Ray {
+       ^
+graphics.hpp:62:7: error: previous definition of ‘class Ray’
+ class Ray {
+       ^
+In file included from UI.hpp:5:0,
+                 from UI.cpp:1:
+graphics.hpp:147:1: error: expected ‘;’ after class definition
+ }
+ ^
+graphics.hpp: In constructor ‘Wireframe::Wireframe(std::vector<Shape*>)’:
+graphics.hpp:143:43: error: expected ‘{’ at end of input
+     Wireframe(vector<Shape*> s) : shapes(s);
+                                           ^
+In file included from UI.cpp:1:0:
+UI.hpp: At global scope:
+UI.hpp:21:21: error: ‘line’ does not name a type
+     void draw(const line& l);
+                     ^
+UI.hpp:22:21: error: ‘rectangle’ does not name a type
+     void draw(const rectangle& r);
+                     ^
+UI.hpp:22:10: error: ‘void UIHandler::draw(const int&)’ cannot be overloaded
+     void draw(const rectangle& r);
+          ^
+UI.hpp:21:10: error: with ‘void UIHandler::draw(const int&)’
+     void draw(const line& l);
+          ^
+UI.hpp:23:21: error: ‘polygon’ does not name a type
+     void draw(const polygon& p);
+                     ^
+UI.hpp:23:10: error: ‘void UIHandler::draw(const int&)’ cannot be overloaded
+     void draw(const polygon& p);
+          ^
+UI.hpp:21:10: error: with ‘void UIHandler::draw(const int&)’
+     void draw(const line& l);
+          ^
+UI.cpp:8:28: error: ‘line’ does not name a type
+ void UIHandler::draw(const line& l) {
+                            ^
+UI.cpp: In member function ‘void UIHandler::draw(const int&)’:
+UI.cpp:9:16: error: request for member ‘start’ in ‘l’, which is of non-class type ‘const int’
+   renderLine(l.start.x, l.start.y, l.end.x, l.end.y);
+                ^
+UI.cpp:9:27: error: request for member ‘start’ in ‘l’, which is of non-class type ‘const int’
+   renderLine(l.start.x, l.start.y, l.end.x, l.end.y);
+                           ^
+UI.cpp:9:38: error: request for member ‘end’ in ‘l’, which is of non-class type ‘const int’
+   renderLine(l.start.x, l.start.y, l.end.x, l.end.y);
+                                      ^
+UI.cpp:9:47: error: request for member ‘end’ in ‘l’, which is of non-class type ‘const int’
+   renderLine(l.start.x, l.start.y, l.end.x, l.end.y);
+                                               ^
+UI.cpp: At global scope:
+UI.cpp:11:28: error: ‘rectangle’ does not name a type
+ void UIHandler::draw(const rectangle& r) {
+                            ^
+UI.cpp:11:6: error: redefinition of ‘void UIHandler::draw(const int&)’
+ void UIHandler::draw(const rectangle& r) {
+      ^
+UI.cpp:8:6: note: ‘void UIHandler::draw(const int&)’ previously defined here
+ void UIHandler::draw(const line& l) {
+      ^
+UI.cpp:17:28: error: ‘polygon’ does not name a type
+ void UIHandler::draw(const polygon& p) {
+                            ^
+UI.cpp:17:6: error: redefinition of ‘void UIHandler::draw(const int&)’
+ void UIHandler::draw(const polygon& p) {
+      ^
+UI.cpp:8:6: note: ‘void UIHandler::draw(const int&)’ previously defined here
+ void UIHandler::draw(const line& l) {
+      ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:15:29: error: ‘Plane’ does not name a type
+     double distanceTo(const Plane&);
+                             ^
+graphics.hpp:16:29: error: ‘Line’ does not name a type
+     double distanceTo(const Line&);
+                             ^
+graphics.hpp:16:12: error: ‘double Point::distanceTo(const int&)’ cannot be overloaded
+     double distanceTo(const Line&);
+            ^
+graphics.hpp:15:12: error: with ‘double Point::distanceTo(const int&)’
+     double distanceTo(const Plane&);
+            ^
+graphics.hpp:35:12: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector();
+            ^
+graphics.hpp:36:40: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                        ^
+graphics.hpp:37:12: error: expected class-name before ‘(’ token
+     ~vector();
+            ^
+graphics.hpp:39:28: error: ‘vector’ does not name a type
+     Vector operator+(const vector& v);
+                            ^
+graphics.hpp:40:30: error: ‘vector’ does not name a type
+     Vector& operator+=(const vector& v);
+                              ^
+graphics.hpp:41:28: error: ‘vector’ does not name a type
+     Vector operator-(const vector& v);
+                            ^
+graphics.hpp:42:30: error: ‘vector’ does not name a type
+     Vector& operator-=(const vector& v);
+                              ^
+graphics.hpp:44:24: error: ‘vector’ does not name a type
+     Vector cross(const vector& v);
+                        ^
+graphics.hpp: In member function ‘int Vector::vector(double, double, double)’:
+graphics.hpp:36:44: error: only constructors take member initializers
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                            ^
+graphics.hpp:36:59: error: expected ‘{’ at end of input
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                                           ^
+graphics.hpp:36:59: warning: no return statement in function returning non-void [-Wreturn-type]
+graphics.hpp: In member function ‘Vector Plane::normal()’:
+graphics.hpp:59:43: error: no matching function for call to ‘Vector::Vector(double&, double&, double&)’
+     Vector normal() {return Vector(a, b, c);}
+                                           ^
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp: In member function ‘Point Ray::operator()(double)’:
+graphics.hpp:67:51: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+     Point operator()(double u) {return origin + u * direction;}
+                                                   ^
+graphics.hpp: At global scope:
+graphics.hpp:70:7: error: redefinition of ‘class Ray’
+ class Ray {
+       ^
+graphics.hpp:62:7: error: previous definition of ‘class Ray’
+ class Ray {
+       ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:147:1: error: expected ‘;’ after class definition
+ }
+ ^
+graphics.hpp: In constructor ‘Wireframe::Wireframe(std::vector<Shape*>)’:
+graphics.hpp:143:43: error: expected ‘{’ at end of input
+     Wireframe(vector<Shape*> s) : shapes(s);
+                                           ^
+graphics.cpp: At global scope:
+graphics.cpp:17:30: error: ‘point’ does not name a type
+ double Point::distance(const point& p) {
+                              ^
+graphics.cpp:17:8: error: prototype for ‘double Point::distance(const int&)’ does not match any in class ‘Point’
+ double Point::distance(const point& p) {
+        ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:14:12: error: candidate is: double Point::distance(const Point&)
+     double distance(const Point&);
+            ^
+graphics.cpp:21:32: error: ‘vector’ does not name a type
+ Vector Vector::operator+(const vector& v) {
+                                ^
+graphics.cpp: In member function ‘Vector Vector::operator+(const int&)’:
+graphics.cpp:22:23: error: request for member ‘i’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i + v.i, j + v.j, k + v.k);
+                       ^
+graphics.cpp:22:32: error: request for member ‘j’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i + v.i, j + v.j, k + v.k);
+                                ^
+graphics.cpp:22:41: error: request for member ‘k’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i + v.i, j + v.j, k + v.k);
+                                         ^
+graphics.cpp: At global scope:
+graphics.cpp:24:9: error: prototype for ‘Vector& Vector::operator+=(const Vector&)’ does not match any in class ‘Vector’
+ Vector& Vector::operator+=(const Vector& v) {
+         ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:40:13: error: candidate is: Vector& Vector::operator+=(const int&)
+     Vector& operator+=(const vector& v);
+             ^
+graphics.cpp:30:32: error: ‘vector’ does not name a type
+ Vector Vector::operator-(const vector& v) {
+                                ^
+graphics.cpp: In member function ‘Vector Vector::operator-(const int&)’:
+graphics.cpp:31:23: error: request for member ‘i’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i - v.i, j - v.j, k - v.k);
+                       ^
+graphics.cpp:31:32: error: request for member ‘j’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i - v.i, j - v.j, k - v.k);
+                                ^
+graphics.cpp:31:41: error: request for member ‘k’ in ‘v’, which is of non-class type ‘const int’
+   return Vector(i - v.i, j - v.j, k - v.k);
+                                         ^
+graphics.cpp: At global scope:
+graphics.cpp:33:9: error: prototype for ‘Vector& Vector::operator-=(const Vector&)’ does not match any in class ‘Vector’
+ Vector& Vector::operator-=(const Vector& v) {
+         ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:42:13: error: candidate is: Vector& Vector::operator-=(const int&)
+     Vector& operator-=(const vector& v);
+             ^
+graphics.cpp: In member function ‘Vector Vector::operator-()’:
+graphics.cpp:40:27: error: no matching function for call to ‘Vector::Vector(double, double, double)’
+   return Vector(-i, -j, -k);
+                           ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.cpp: At global scope:
+graphics.cpp:45:8: error: prototype for ‘Vector Vector::cross(const Vector&)’ does not match any in class ‘Vector’
+ Vector Vector::cross(const Vector& v) {
+        ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:44:12: error: candidate is: Vector Vector::cross(const int&)
+     Vector cross(const vector& v);
+            ^
+graphics.cpp: In member function ‘Vector Vector::times(double)’:
+graphics.cpp:52:30: error: no matching function for call to ‘Vector::Vector(double, double, double)’
+   return Vector(i*d, j*d, k*d);
+                              ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.cpp: In constructor ‘Plane::Plane(Point, Point, Point)’:
+graphics.cpp:56:17: error: no match for ‘operator-’ (operand types are ‘Point’ and ‘Point’)
+   Vector n = (b - a).cross(c - a);
+                 ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:328:5: note: candidate: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator-(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:19: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:380:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator-(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:19: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:1138:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator-(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:1138:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:19: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                   ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:1145:5: note: candidate: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator-(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:19: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                   ^
+In file included from /usr/include/c++/5/vector:65:0,
+                 from include.hpp:6,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_bvector.h:208:3: note: candidate: std::ptrdiff_t std::operator-(const std::_Bit_iterator_base&, const std::_Bit_iterator_base&)
+   operator-(const _Bit_iterator_base& __x, const _Bit_iterator_base& __y)
+   ^
+/usr/include/c++/5/bits/stl_bvector.h:208:3: note:   no known conversion for argument 1 from ‘Point’ to ‘const std::_Bit_iterator_base&’
+graphics.cpp:56:30: error: no match for ‘operator-’ (operand types are ‘Point’ and ‘Point’)
+   Vector n = (b - a).cross(c - a);
+                              ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:328:5: note: candidate: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator-(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:32: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                                ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:380:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator-(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:32: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                                ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:1138:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
+     operator-(const move_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:1138:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:32: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                                ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from include.hpp:4,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_iterator.h:1145:5: note: candidate: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
+     operator-(const move_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
+graphics.cpp:56:32: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
+   Vector n = (b - a).cross(c - a);
+                                ^
+In file included from /usr/include/c++/5/vector:65:0,
+                 from include.hpp:6,
+                 from graphics.cpp:1:
+/usr/include/c++/5/bits/stl_bvector.h:208:3: note: candidate: std::ptrdiff_t std::operator-(const std::_Bit_iterator_base&, const std::_Bit_iterator_base&)
+   operator-(const _Bit_iterator_base& __x, const _Bit_iterator_base& __y)
+   ^
+/usr/include/c++/5/bits/stl_bvector.h:208:3: note:   no known conversion for argument 1 from ‘Point’ to ‘const std::_Bit_iterator_base&’
+graphics.cpp:57:5: error: no match for ‘operator=’ (operand types are ‘Point’ and ‘double’)
+   a = n.i;
+     ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:8:7: note: candidate: Point& Point::operator=(const Point&)
+ class Point {
+       ^
+graphics.hpp:8:7: note:   no known conversion for argument 1 from ‘double’ to ‘const Point&’
+graphics.cpp:58:5: error: no match for ‘operator=’ (operand types are ‘Point’ and ‘double’)
+   b = n.j;
+     ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:8:7: note: candidate: Point& Point::operator=(const Point&)
+ class Point {
+       ^
+graphics.hpp:8:7: note:   no known conversion for argument 1 from ‘double’ to ‘const Point&’
+graphics.cpp:59:5: error: no match for ‘operator=’ (operand types are ‘Point’ and ‘double’)
+   c = n.k;
+     ^
+In file included from graphics.cpp:2:0:
+graphics.hpp:8:7: note: candidate: Point& Point::operator=(const Point&)
+ class Point {
+       ^
+graphics.hpp:8:7: note:   no known conversion for argument 1 from ‘double’ to ‘const Point&’
+graphics.cpp:60:16: error: ‘p1’ was not declared in this scope
+   d = -(Vector(p1).dot(n));
+                ^
+In file included from plane.hpp:4:0,
+                 from plane.cpp:1:
+graphics.hpp:15:29: error: ‘Plane’ does not name a type
+     double distanceTo(const Plane&);
+                             ^
+graphics.hpp:16:29: error: ‘Line’ does not name a type
+     double distanceTo(const Line&);
+                             ^
+graphics.hpp:16:12: error: ‘double Point::distanceTo(const int&)’ cannot be overloaded
+     double distanceTo(const Line&);
+            ^
+graphics.hpp:15:12: error: with ‘double Point::distanceTo(const int&)’
+     double distanceTo(const Plane&);
+            ^
+graphics.hpp:35:12: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector();
+            ^
+graphics.hpp:36:40: error: ISO C++ forbids declaration of ‘vector’ with no type [-fpermissive]
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                        ^
+graphics.hpp:37:12: error: expected class-name before ‘(’ token
+     ~vector();
+            ^
+graphics.hpp:39:28: error: ‘vector’ does not name a type
+     Vector operator+(const vector& v);
+                            ^
+graphics.hpp:40:30: error: ‘vector’ does not name a type
+     Vector& operator+=(const vector& v);
+                              ^
+graphics.hpp:41:28: error: ‘vector’ does not name a type
+     Vector operator-(const vector& v);
+                            ^
+graphics.hpp:42:30: error: ‘vector’ does not name a type
+     Vector& operator-=(const vector& v);
+                              ^
+graphics.hpp:44:24: error: ‘vector’ does not name a type
+     Vector cross(const vector& v);
+                        ^
+graphics.hpp: In member function ‘int Vector::vector(double, double, double)’:
+graphics.hpp:36:44: error: only constructors take member initializers
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                            ^
+graphics.hpp:36:59: error: expected ‘{’ at end of input
+     vector(double a, double b, double c) : i(a), j(b), k(c);
+                                                           ^
+graphics.hpp:36:59: warning: no return statement in function returning non-void [-Wreturn-type]
+graphics.hpp: In member function ‘Vector Plane::normal()’:
+graphics.hpp:59:43: error: no matching function for call to ‘Vector::Vector(double&, double&, double&)’
+     Vector normal() {return Vector(a, b, c);}
+                                           ^
+graphics.hpp:33:7: note: candidate: Vector::Vector()
+ class Vector {
+       ^
+graphics.hpp:33:7: note:   candidate expects 0 arguments, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(const Vector&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp:33:7: note: candidate: constexpr Vector::Vector(Vector&&)
+graphics.hpp:33:7: note:   candidate expects 1 argument, 3 provided
+graphics.hpp: In member function ‘Point Ray::operator()(double)’:
+graphics.hpp:67:51: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+     Point operator()(double u) {return origin + u * direction;}
+                                                   ^
+graphics.hpp: At global scope:
+graphics.hpp:70:7: error: redefinition of ‘class Ray’
+ class Ray {
+       ^
+graphics.hpp:62:7: error: previous definition of ‘class Ray’
+ class Ray {
+       ^
+In file included from plane.hpp:4:0,
+                 from plane.cpp:1:
+graphics.hpp:147:1: error: expected ‘;’ after class definition
+ }
+ ^
+graphics.hpp: In constructor ‘Wireframe::Wireframe(std::vector<Shape*>)’:
+graphics.hpp:143:43: error: expected ‘{’ at end of input
+     Wireframe(vector<Shape*> s) : shapes(s);
+                                           ^
+In file included from plane.cpp:1:0:
+plane.hpp: At global scope:
+plane.hpp:42:5: error: ‘point’ does not name a type
+     point location;
+     ^
+plane.hpp:43:5: error: ‘image’ does not name a type
+     image looks;
+     ^
+In file included from plane.cpp:1:0:
+plane.hpp: In constructor ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’:
+plane.hpp:8:127: error: class ‘plane’ does not have any field named ‘looks’
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+                                                                                                                               ^
+In file included from plane.cpp:1:0:
+plane.hpp:8:332: error: class ‘plane’ does not have any field named ‘crosSection’
+  maxThrust(maxPower), bankAngle(0), altitude(0), aileronSize(aSize), elevatorSize(eSize), rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection
+                                                                                                                                                                 ^
+plane.hpp:8:430: error: ‘location’ was not declared in this scope
+  rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
+                                                                                                                                                                          ^
+plane.hpp:33:11: warning: ‘plane::thrustPercent’ will be initialized after [-Wreorder]
+     float thrustPercent;
+           ^
+plane.hpp:32:11: warning:   ‘float plane::maxThrust’ [-Wreorder]
+     float maxThrust;
+           ^
+In file included from plane.cpp:1:0:
+plane.hpp:8:5: warning:   when initialized here [-Wreorder]
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+     ^
+In file included from plane.cpp:1:0:
+plane.hpp:32:11: warning: ‘plane::maxThrust’ will be initialized after [-Wreorder]
+     float maxThrust;
+           ^
+plane.hpp:17:11: warning:   ‘float plane::bankAngle’ [-Wreorder]
+     float bankAngle;
+           ^
+In file included from plane.cpp:1:0:
+plane.hpp:8:5: warning:   when initialized here [-Wreorder]
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+     ^
+In file included from plane.cpp:1:0:
+plane.hpp:8:430: error: expected ‘{’ at end of input
+  rudderSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crosSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l);
+                                                                                                                                                                          ^
+plane.cpp: At global scope:
+plane.cpp:3:1: error: redefinition of ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’
+ plane::plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(
+ ^
+In file included from plane.cpp:1:0:
+plane.hpp:8:5: note: ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’ previously defined here
+     plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
+     ^
+plane.cpp: In member function ‘void plane::recalculate()’:
+plane.cpp:5:32: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+   motion = (thrust.magnitude() * thrust + surfaces.magnitude() * surfaces + motion.magnitude() * motion) / (thrust.magnitude() + surfaces.magnitude() + motion.magnitude())
+                                ^
+plane.cpp:5:64: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+   motion = (thrust.magnitude() * thrust + surfaces.magnitude() * surfaces + motion.magnitude() * motion) / (thrust.magnitude() + surfaces.magnitude() + motion.magnitude())
+                                                                ^
+plane.cpp:5:96: error: no match for ‘operator*’ (operand types are ‘double’ and ‘Vector’)
+   motion = (thrust.magnitude() * thrust + surfaces.magnitude() * surfaces + motion.magnitude() * motion) / (thrust.magnitude() + surfaces.magnitude() + motion.magnitude())
+                                                                                                ^
+In file included from map.cpp:1:0,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1,
+                 from map.cpp:1:
+map.cpp:1:19: error: #include nested too deeply
+Makefile:6: recipe for target 'all' failed
+make: *** [all] Error 1
