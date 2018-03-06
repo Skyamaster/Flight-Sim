@@ -48,8 +48,11 @@ Vector Vector::cross(const Vector& v) {
 double Vector::magnitude() {
   return sqrt(i*i + j*j + k*k);
 }
-Vector Vector::times(double d) {
+Vector Vector::operator*(double d) {
   return Vector(i*d, j*d, k*d);
+}
+Vector Vector::operator/(double d) {
+  return Vector(i/d, j/d, k/d);
 }
 
 Plane::Plane(Point a, Point b, Point c) {
