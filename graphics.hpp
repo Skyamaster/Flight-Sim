@@ -44,9 +44,9 @@ class Color {
 
 class Vector {
   public:
-    vector();
-    vector(double a, double b, double c) : i(a), j(b), k(c);
-    ~vector();
+    Vector();
+    Vector(double a, double b, double c) : i(a), j(b), k(c);
+    ~Vector();
   
     Vector operator+(const vector& v);
     Vector& operator+=(const vector& v);
