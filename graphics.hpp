@@ -5,6 +5,18 @@
 
 double noise(int x, int y);
 
+class Plane;
+class Point;
+class Vector;
+class Rectangle;
+class Circle;
+class Polygon;
+class Ray;
+class Line;
+class Curve;
+class Shape;
+class Color
+
 class Point {
   public:
     Point();
@@ -40,9 +52,10 @@ class Vector {
     Vector& operator+=(const vector& v);
     Vector operator-(const vector& v);
     Vector& operator-=(const vector& v);
+    Vector operator*(double d);
+    Vector operator/(double d);
     Vector operator-();
     Vector cross(const vector& v);
-    Vector times(double d);
     double dot(const Vector& v);
     double magnitude();
   
@@ -67,16 +80,7 @@ class Ray {
     Point operator()(double u) {return origin + u * direction;}
 };
 
-class Ray {
-  public:
-    Point origin;
-    Vector direction;
-    Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
-    Point operator() (double u) {return origin + u * direction;}
-};
-
 Color black(0, 0, 0);
-
 
 class Shape {
   // just a dummy class used to group the Shapes
