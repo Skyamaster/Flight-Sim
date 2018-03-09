@@ -18,9 +18,9 @@ class UIHandler {
     ~UIHandler();
     
     // UI creation functions
-    void draw(const line& l);
-    void draw(const rectangle& r);
-    void draw(const polygon& p);
+    void draw(const Line& l);
+    void draw(const Rectangle& r);
+    void draw(const Polygon& p);
   private:
     bool mode;
 };
