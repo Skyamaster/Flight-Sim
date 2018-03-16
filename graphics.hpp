@@ -45,20 +45,21 @@ class Color {
 class Vector {
   public:
     Vector();
-    Vector(double a, double b, double c) : i(a), j(b), k(c);
+    Vector(double a, double b, double c) : i(a), j(b), k(c) {};
+    Vector(Point p) : i(p.x), j(p.y), k(p.z) {};
     ~Vector();
   
-    Vector operator+(const vector& v);
-    Vector& operator+=(const vector& v);
-    Vector operator-(const vector& v);
-    Vector& operator-=(const vector& v);
+    Vector operator+(const Vector& v);
+    Vector& operator+=(const Vector& v);
+    Vector operator-(const Vector& v);
+    Vector& operator-=(const Vector& v);
     Vector operator*(double d);
     Vector operator/(double d);
     Vector operator-();
-    Vector cross(const vector& v);
+    Vector cross(const Vector& v);
     double dot(const Vector& v);
-    double magnitude();
-  
+    double magnitude();  
+ 
     double i;
     double j;
     double k;
@@ -77,7 +78,7 @@ class Ray {
     Point origin;
     Vector direction;
     Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
-    Point operator()(double u) {return origin + u * direction;}
+    Point operator() (double u) {return origin + direction * u;}
 };
 
 Color black(0, 0, 0);
