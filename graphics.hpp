@@ -15,13 +15,13 @@ class Ray;
 class Line;
 class Curve;
 class Shape;
-class Color
+class Color;
 
 class Point {
   public:
     Point();
     Point(const Point& p) : x(p.x), y(p.y), z(p.z) {};
-    Point(double a, double b, double c) : x(a), y(b), z(c) {};
+    Point(double a = 0, double b = 0, double c = 0) : x(a), y(b), z(c) {};
     ~Point();
     double distance(const Point&);
     double distanceTo(const Plane&);
@@ -48,7 +48,8 @@ class Vector {
     Vector(double a, double b, double c) : i(a), j(b), k(c) {};
     Vector(Point p) : i(p.x), j(p.y), k(p.z) {};
     ~Vector();
-  
+    
+    Vector operator+(const Point& p);
     Vector operator+(const Vector& v);
     Vector& operator+=(const Vector& v);
     Vector operator-(const Vector& v);
@@ -78,7 +79,7 @@ class Ray {
     Point origin;
     Vector direction;
     Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
-    Point operator() (double u) {return origin + direction * u;}
+    Point operator() (double u) {return direction * u + origin;}
 };
 
 Color black(0, 0, 0);
@@ -145,11 +146,11 @@ class Polygon : Shape {
 class Wireframe : Shape {
   public:
     Wireframe();
-    Wireframe(vector<Shape*> s) : shapes(s);
+    Wireframe(vector<Shape*> s) : shapes(s) {};
     ~Wireframe();
     vector<Shape*> shapes;
     void render();
-}
+};
 
 class Image {
   public:

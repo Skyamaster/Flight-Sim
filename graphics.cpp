@@ -14,11 +14,15 @@ double noise(int x, int y) {
   return height;
 }
 
-double Point::distance(const point& p) {
+double Point::distance(const Point& p) {
   return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
 }
 
-Vector Vector::operator+(const vector& v) {
+Vector Vector::operator+(const Point& p) {
+  Vector t(p);
+  return Vector(i + t.i, j + t.j, k + t.k);
+}
+Vector Vector::operator+(const Vector& v) {
   return Vector(i + v.i, j + v.j, k + v.k);
 }
 Vector& Vector::operator+=(const Vector& v) {
