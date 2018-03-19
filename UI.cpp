@@ -15,10 +15,10 @@ void UIHandler::draw(const Rectangle& r) {
   int height = topLeft.y - bottomRight.y;
 }
 void UIHandler::draw(const Polygon& p) {
-  if (p.points.size() < 2) {
+  if (p.Points.size() < 2) {
     return; //error - polygon must have at least 2 points
   }
   for (int j = 0; j < p.points.size()-1; j++) {
-    renderLine(p.points[j].x, p.points[j].y, p.points[j+1].x, p.points[j+1].y);
+    renderLine(p.Points[j].x, p.Points[j].y, p.Points[j+1].x, p.Points[j+1].y);
   }
 }
