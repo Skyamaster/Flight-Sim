@@ -23,6 +23,10 @@ class Point {
     Point(const Point& p) : x(p.x), y(p.y), z(p.z) {};
     Point(double a = 0, double b = 0, double c = 0) : x(a), y(b), z(c) {};
     ~Point();
+  
+    Point operator+(const Vector& v);
+    Point& operator+=(const Vector& v);
+    Vector operator-(const Point& p);
     double distance(const Point&);
     double distanceTo(const Plane&);
     double distanceTo(const Line&);
