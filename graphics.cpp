@@ -17,7 +17,7 @@ double noise(int x, int y) {
 double Point::distance(const Point& p) {
   return sqrt((x-p.x)*(x-p.x)+(y-p.y)*(y-p.y));
 }
-Point Point::operator+=(const Vector& v) {
+Point& Point::operator+=(const Vector& v) {
   x += v.i; 
   y += v.j; 
   z += v.k; 
@@ -43,7 +43,7 @@ Vector& Vector::operator+=(const Vector& v) {
   k += v.k;
   return *this;
 }
-Vector Vector::operator-(const vector& v) {
+Vector Vector::operator-(const Vector& v) {
   return Vector(i - v.i, j - v.j, k - v.k);
 }
 Vector& Vector::operator-=(const Vector& v) {
@@ -71,8 +71,8 @@ Vector Vector::operator/(double d) {
   return Vector(i/d, j/d, k/d);
 }
 
-Plane::Plane(Point a, Point b, Point c) {
-  Vector n = (b - a).cross(c - a);
+Plane::Plane(Point p1, Point p2, Point p3) {
+  Vector n = (p2 - p1).cross(p3 - p1);
   a = n.i;
   b = n.j;
   c = n.k;

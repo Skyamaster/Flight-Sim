@@ -3,8 +3,6 @@
 
 #include "include.hpp"
 
-double noise(int x, int y);
-
 class Plane;
 class Point;
 class Vector;
@@ -83,7 +81,7 @@ class Ray {
     Point origin;
     Vector direction;
     Ray(Point origin, Vector direction): origin(origin), direction(direction) {}
-    Point operator() (double u) {return direction * u + origin;}
+    Point operator() (double u) {return origin + direction * u;}
 };
 
 Color black(0, 0, 0);
