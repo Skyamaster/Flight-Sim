@@ -1,35 +1,25 @@
-ll -O0 -std=c++11 main.cpp UI.cpp graphics.cpp plane.cpp map.cpp
+g++ -Wall -O0 -std=c++11 main.cpp UI.cpp graphics.cpp plane.cpp map.cpp
 In file included from plane.hpp:4:0,
                  from all.hpp:5,
                  from main.cpp:1:
-graphics.hpp: In member function ‘Point Ray::operator()(double)’:
-graphics.hpp:82:55: error: could not convert ‘Vector::operator+(const Point&)(((Ray*)this)->Ray::origin)’ from ‘Vector’ to ‘Point’
-     Point operator() (double u) {return direction * u + origin;}
-                                                       ^
-In file included from plane.hpp:4:0,
-                 from all.hpp:5,
-                 from main.cpp:1:
-graphics.hpp: At global scope:
-graphics.hpp:139:19: error: ‘vector’ does not name a type
+graphics.hpp:141:19: error: ‘vector’ does not name a type
      Polygon(const vector<Point>&, const Color& fc = black);
                    ^
-graphics.hpp:139:25: error: expected ‘,’ or ‘...’ before ‘<’ token
+graphics.hpp:141:25: error: expected ‘,’ or ‘...’ before ‘<’ token
      Polygon(const vector<Point>&, const Color& fc = black);
                          ^
-graphics.hpp:142:5: error: ‘vector’ does not name a type
+graphics.hpp:144:5: error: ‘vector’ does not name a type
      vector<Point> Points;
      ^
-graphics.hpp:149:21: error: expected ‘)’ before ‘<’ token
+graphics.hpp:151:21: error: expected ‘)’ before ‘<’ token
      Wireframe(vector<Shape*> s) : shapes(s) {};
                      ^
-graphics.hpp:151:5: error: ‘vector’ does not name a type
+graphics.hpp:153:5: error: ‘vector’ does not name a type
      vector<Shape*> shapes;
      ^
 In file included from all.hpp:5:0,
                  from main.cpp:1:
 plane.hpp: In constructor ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’:
-plane.hpp:8:431: error: no match for call to ‘(Point) (Point&)’
- erSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};                                                                                                                                                                      ^
 plane.hpp:43:15: warning: ‘plane::looks’ will be initialized after [-Wreorder]
      Wireframe looks;
                ^
@@ -64,42 +54,13 @@ In file included from all.hpp:5:0,
                  from main.cpp:1:
 plane.hpp:8:5: warning:   when initialized here [-Wreorder]
      plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0)     ^
-In file included from all.hpp:5:0,
+In file included from all.hpp:7:0,
                  from main.cpp:1:
-plane.hpp:8:434: error: call of overloaded ‘Point()’ is ambiguous
- erSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};                                                                                                                                                                         ^
-In file included from plane.hpp:4:0,
-                 from all.hpp:5,
-                 from main.cpp:1:
-graphics.hpp:24:5: note: candidate: Point::Point(double, double, double)
-     Point(double a = 0, double b = 0, double c = 0) : x(a), y(b), z(c) {};
-     ^
-graphics.hpp:22:5: note: candidate: Point::Point()
-     Point();
-     ^
-In file included from all.hpp:5:0,
-                 from main.cpp:1:
-plane.hpp:8:434: error: expected ‘{’ at end of input
- erSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};                                                                                                                                                                         ^
-In file included from UI.hpp:5:0,
-                 from UI.cpp:1:
-graphics.hpp: In member function ‘Point Ray::operator()(double)’:
-graphics.hpp:82:55: error: could not convert ‘Vector::operator+(const Point&)(((Ray*)this)->Ray::origin)’ from ‘Vector’ to ‘Point’
-     Point operator() (double u) {return direction * u + origin;}
-                                                       ^
+map.hpp: At global scope:
+map.hpp:6:1: error: ‘vector’ does not name a type
+ vector<vector<double>> heights; // Global variables are sins, I know...
+ ^
 UI.cpp: In member function ‘void UIHandler::draw(const Rectangle&)’:
-UI.cpp:12:3: error: ‘point’ was not declared in this scope
-   point topLeft = r.tl;
-   ^
-UI.cpp:13:9: error: expected ‘;’ before ‘bottomRight’
-   point bottomRight = r.br;
-         ^
-UI.cpp:14:15: error: ‘bottomRight’ was not declared in this scope
-   int width = bottomRight.x - topLeft.x;
-               ^
-UI.cpp:14:31: error: ‘topLeft’ was not declared in this scope
-   int width = bottomRight.x - topLeft.x;
-                               ^
 UI.cpp:14:7: warning: unused variable ‘width’ [-Wunused-variable]
    int width = bottomRight.x - topLeft.x;
        ^
@@ -107,175 +68,11 @@ UI.cpp:15:7: warning: unused variable ‘height’ [-Wunused-variable]
    int height = topLeft.y - bottomRight.y;
        ^
 UI.cpp: In member function ‘void UIHandler::draw(const Polygon&)’:
-UI.cpp:21:25: error: ‘const class Polygon’ has no member named ‘points’
-   for (int j = 0; j < p.points.size()-1; j++) {
-                         ^
-In file included from graphics.cpp:2:0:
-graphics.hpp: In member function ‘Point Ray::operator()(double)’:
-graphics.hpp:82:55: error: could not convert ‘Vector::operator+(const Point&)(((Ray*)this)->Ray::origin)’ from ‘Vector’ to ‘Point’
-     Point operator() (double u) {return direction * u + origin;}
-                                                       ^
-graphics.cpp: At global scope:
-graphics.cpp:34:32: error: invalid use of template-name ‘std::vector’ without an argument list
- Vector Vector::operator-(const vector& v) {
-                                ^
-graphics.cpp:34:8: error: prototype for ‘Vector Vector::operator-(const int&)’ does not match any in class ‘Vector’
- Vector Vector::operator-(const vector& v) {
-        ^
-In file included from graphics.cpp:2:0:
-graphics.hpp:59:12: error: candidates are: Vector Vector::operator-()
-     Vector operator-();
-            ^
-graphics.hpp:55:12: error:                 Vector Vector::operator-(const Vector&)
-     Vector operator-(const Vector& v);
-            ^
-graphics.cpp: In constructor ‘Plane::Plane(Point, Point, Point)’:
-graphics.cpp:63:17: error: no match for ‘operator-’ (operand types are ‘Point’ and ‘Point’)
-   Vector n = (b - a).cross(c - a);
-                 ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:328:5: note: candidate: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
-     operator-(const reverse_iterator<_Iterator>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:19: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                   ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:380:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
-     operator-(const reverse_iterator<_IteratorL>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:19: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                   ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:1138:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
-     operator-(const move_iterator<_IteratorL>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:1138:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:19: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                   ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:1145:5: note: candidate: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
-     operator-(const move_iterator<_Iterator>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:19: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                   ^
-In file included from /usr/include/c++/5/vector:65:0,
-                 from include.hpp:6,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_bvector.h:208:3: note: candidate: std::ptrdiff_t std::operator-(const std::_Bit_iterator_base&, const std::_Bit_iterator_base&)
-   operator-(const _Bit_iterator_base& __x, const _Bit_iterator_base& __y)
-   ^
-/usr/include/c++/5/bits/stl_bvector.h:208:3: note:   no known conversion for argument 1 from ‘Point’ to ‘const std::_Bit_iterator_base&’
-graphics.cpp:63:30: error: no match for ‘operator-’ (operand types are ‘Point’ and ‘Point’)
-   Vector n = (b - a).cross(c - a);
-                              ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:328:5: note: candidate: template<class _Iterator> typename std::reverse_iterator<_Iterator>::difference_type std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
-     operator-(const reverse_iterator<_Iterator>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:328:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:32: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                                ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:380:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__y.base() - __x.base())) std::operator-(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
-     operator-(const reverse_iterator<_IteratorL>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:380:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:32: note:   ‘Point’ is not derived from ‘const std::reverse_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                                ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:1138:5: note: candidate: template<class _IteratorL, class _IteratorR> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_IteratorR>&)
-     operator-(const move_iterator<_IteratorL>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:1138:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:32: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                                ^
-In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
-                 from /usr/include/c++/5/bits/char_traits.h:39,
-                 from /usr/include/c++/5/ios:40,
-                 from /usr/include/c++/5/ostream:38,
-                 from /usr/include/c++/5/iostream:39,
-                 from include.hpp:4,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_iterator.h:1145:5: note: candidate: template<class _Iterator> decltype ((__x.base() - __y.base())) std::operator-(const std::move_iterator<_Iterator>&, const std::move_iterator<_Iterator>&)
-     operator-(const move_iterator<_Iterator>& __x,
-     ^
-/usr/include/c++/5/bits/stl_iterator.h:1145:5: note:   template argument deduction/substitution failed:
-graphics.cpp:63:32: note:   ‘Point’ is not derived from ‘const std::move_iterator<_Iterator>’
-   Vector n = (b - a).cross(c - a);
-                                ^
-In file included from /usr/include/c++/5/vector:65:0,
-                 from include.hpp:6,
-                 from graphics.cpp:1:
-/usr/include/c++/5/bits/stl_bvector.h:208:3: note: candidate: std::ptrdiff_t std::operator-(const std::_Bit_iterator_base&, const std::_Bit_iterator_base&)
-   operator-(const _Bit_iterator_base& __x, const _Bit_iterator_base& __y)
-   ^
-/usr/include/c++/5/bits/stl_bvector.h:208:3: note:   no known conversion for argument 1 from ‘Point’ to ‘const std::_Bit_iterator_base&’
-graphics.cpp:67:16: error: ‘p1’ was not declared in this scope
-   d = -(Vector(p1).dot(n));
-                ^
-In file included from plane.hpp:4:0,
-                 from plane.cpp:1:
-graphics.hpp: In member function ‘Point Ray::operator()(double)’:
-graphics.hpp:82:55: error: could not convert ‘Vector::operator+(const Point&)(((Ray*)this)->Ray::origin)’ from ‘Vector’ to ‘Point’
-     Point operator() (double u) {return direction * u + origin;}
-                                                       ^
+UI.cpp:21:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (int j = 0; j < p.Points.size()-1; j++) {
+                     ^
 In file included from plane.cpp:1:0:
 plane.hpp: In constructor ‘plane::plane(Wireframe, Point, float, float, float, float, float, float)’:
-plane.hpp:8:431: error: no match for call to ‘(Point) (Point&)’
- derSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};
-                                                                                                                                                                       ^
 plane.hpp:43:15: warning: ‘plane::looks’ will be initialized after [-Wreorder]
      Wireframe looks;
                ^
@@ -308,21 +105,13 @@ In file included from plane.cpp:1:0:
 plane.hpp:8:5: warning:   when initialized here [-Wreorder]
      plane(Wireframe i, Point l, float maxPower, float aSize, float eSize, float rSize, float cSection, float rcSection = 0) : looks(i), angleOfAttack(0), thrustPercent(0),
      ^
-In file included from plane.cpp:1:0:
-plane.hpp:8:434: error: call of overloaded ‘Point()’ is ambiguous
- derSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};
-                                                                                                                                                                          ^
-In file included from plane.hpp:4:0,
-                 from plane.cpp:1:
-graphics.hpp:24:5: note: candidate: Point::Point(double, double, double)
-     Point(double a = 0, double b = 0, double c = 0) : x(a), y(b), z(c) {};
-     ^
-graphics.hpp:22:5: note: candidate: Point::Point()
-     Point();
-     ^
-In file included from plane.cpp:1:0:
-plane.hpp:8:434: error: expected ‘{’ at end of input
- derSize(rSize), aileronAngle(0), elevatorAngle(0), rudderAngle(0), crossSection(cSection), radarCrossSection(((rcSection == 0) ? (cSection) : (rcSection)), location(l) {};
-                                                                                                                                                                          ^
+map.cpp: In function ‘void generateMap(int, int)’:
+map.cpp:16:43: error: ambiguating new declaration of ‘void generateMap(int, int)’
+ void generateMap(int longSize, int latSize) {
+                                           ^
+In file included from map.cpp:1:0:
+map.hpp:8:8: note: old declaration ‘double generateMap(int, int)’
+ double generateMap(int longSize, int latSize); // longSize is the maximum longitude, for negative longitudes, that number is simply mirrored over. Same for latitude
+        ^
 Makefile:6: recipe for target 'all' failed
 make: *** [all] Error 1
