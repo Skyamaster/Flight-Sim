@@ -22,3 +22,10 @@ void generateMap(int longSize, int latSize) {
     heights.push_back(toAppend);
   }
 }
+
+bool isTouching(int height, int long, int lat) {
+  if (heights[long][lat] >= height) {
+    return true;
+  }
+  return false;
+}
